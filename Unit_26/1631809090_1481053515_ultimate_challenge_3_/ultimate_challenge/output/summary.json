@@ -1,0 +1,63 @@
+{
+  "part1": {
+    "records": 93142,
+    "intervals": 9788,
+    "mean_15m": 9.516,
+    "median_15m": 7.0,
+    "peak_interval": 73,
+    "peak_timestamp": "1970-03-01 04:30:00",
+    "weekday_peak_hour": 11.5,
+    "weekend_peak_hour": 4.75,
+    "first_day_total": 112,
+    "last_day_total": 395
+  },
+  "part3": {
+    "retention_rate": 0.37608,
+    "city_retention": {
+      "Astapor": 0.2557,
+      "King's Landing": 0.6281,
+      "Winterfell": 0.3519
+    },
+    "phone_retention": {
+      "Android": 0.2094,
+      "iPhone": 0.4489
+    },
+    "missing_rate": {
+      "avg_rating_of_driver": 0.1624,
+      "phone": 0.0079,
+      "avg_rating_by_driver": 0.004,
+      "signup_date": 0.0,
+      "trips_in_first_30_days": 0.0,
+      "avg_surge": 0.0,
+      "city": 0.0,
+      "last_trip_date": 0.0,
+      "surge_pct": 0.0,
+      "weekday_pct": 0.0,
+      "ultimate_black_user": 0.0,
+      "avg_dist": 0.0,
+      "retained": 0.0,
+      "signup_day": 0.0,
+      "signup_weekday": 0.0
+    },
+    "model_metrics": {
+      "Logistic regression": {
+        "roc_auc": 0.7535,
+        "avg_precision": 0.6588,
+        "accuracy": 0.7165,
+        "precision": 0.6676,
+        "recall": 0.4903,
+        "f1": 0.5654,
+        "brier": 0.1895
+      },
+      "Random forest": {
+        "roc_auc": 0.8503,
+        "avg_precision": 0.7835,
+        "accuracy": 0.7824,
+        "precision": 0.7454,
+        "recall": 0.64,
+        "f1": 0.6887,
+        "brier": 0.1499
+      }
+    }
+  }
+}

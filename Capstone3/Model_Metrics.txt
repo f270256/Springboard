@@ -1,0 +1,89 @@
+YouTube Trending Project — Model Metrics
+======================================
+
+Final selected model
+--------------------
+Model name: Random Forest Classifier
+Why selected: It performed better than the Logistic Regression baseline on the 2025 holdout set.
+
+Prediction task
+---------------
+Target variable: high_engagement
+Definition: 1 if a 2025 trending entry is in the top quartile of likes-to-views ratio
+Threshold source: Threshold is defined from the 2024 training data
+Approximate 2024 top-quartile threshold: 5.3% likes-to-views ratio
+
+Train / test split
+------------------
+Training data: 2024 balanced sample
+Test data: 2025 balanced sample
+Sampling seed used in project: 42
+
+Final model features
+--------------------
+Numeric features:
+1. days_to_trend
+2. title_length
+3. description_length
+4. title_word_count
+5. description_word_count
+6. title_uppercase_ratio
+7. title_exclamation_count
+8. title_question_count
+9. tag_count
+10. log_view_count
+11. kw_official
+12. kw_trailer
+13. kw_music
+14. kw_live
+15. kw_episode
+16. kw_shorts
+17. kw_feat
+
+Categorical features:
+1. country
+2. language
+3. kind
+4. publish_day
+5. publish_month
+
+Preprocessing used before modeling
+----------------------------------
+Numeric pipeline:
+- median imputation for missing values
+- standard scaling
+
+Categorical pipeline:
+- most-frequent imputation for missing values
+- one-hot encoding with unknown categories ignored at test time
+
+Model parameters / hyperparameters
+----------------------------------
+Estimator: RandomForestClassifier
+n_estimators = 250
+random_state = 42
+n_jobs = -1
+class_weight = balanced_subsample
+min_samples_leaf = 5
+Other hyperparameters: sklearn defaults
+
+Performance metrics used in final project
+-----------------------------------------
+Primary model selection metric:
+- ROC-AUC on 2025 holdout set
+
+Final reported performance:
+- ROC-AUC: about 0.71 on the 2025 holdout set
+- Top prediction decile actual high-engagement rate: 44.9%
+- Bottom prediction decile actual high-engagement rate: 4.4%
+
+Interpretation
+--------------
+The model is useful as a ranking / screening tool inside the trending sample.
+It is not strong enough to be used as a fully automatic decision maker.
+The final project recommendation was to use the model together with editorial or business judgment.
+
+Important note
+--------------
+This project predicts high engagement inside a sample of videos that already trended.
+It does NOT predict the probability that any uploaded YouTube video will trend overall.
